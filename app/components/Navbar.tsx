@@ -12,22 +12,37 @@ export default function Navbar() {
       {/* Top Navbar */}
       <header className="sticky top-0 z-40 bg-white border-b">
         <div className="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
-          <Link href="/" className="font-bold text-lg">
-            SAK Associates
-          </Link>
+          
+          {/* LOGO */}
+          <Link href="/" className="flex items-center">
+  <img
+    src="/logo.png"
+    alt="SAK Associates Logo"
+    className="h-14 md:h-20 w-auto object-contain"
+  />
+</Link>
+
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex gap-8 text-sm font-medium">
-            <a href="/#about">About</a>
-            <a href="/services">Services</a>
-            <a href="/#gallery">Gallery</a>
-            <a href="/#contact">Contact</a>
+          <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-800">
+            <a href="/#about" className="hover:text-blue-600">
+              About
+            </a>
+            <a href="/services" className="hover:text-blue-600">
+              Services
+            </a>
+            <a href="/#gallery" className="hover:text-blue-600">
+              Gallery
+            </a>
+            <a href="/#contact" className="hover:text-blue-600">
+              Contact
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen(true)}
-            className="md:hidden text-2xl"
+            className="md:hidden text-3xl"
             aria-label="Open menu"
           >
             ☰
@@ -38,6 +53,7 @@ export default function Navbar() {
       {/* Mobile Overlay Menu */}
       {menuOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm">
+          
           {/* Close Button */}
           <button
             onClick={() => {
@@ -114,4 +130,3 @@ export default function Navbar() {
     </>
   );
 }
-
