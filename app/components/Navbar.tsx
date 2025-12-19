@@ -1,24 +1,117 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-50 bg-white border-b">
-      <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-        <div className="font-bold text-lg">SAK Associates</div>
+    <>
+      {/* Top Navbar */}
+      <header className="sticky top-0 z-40 bg-white border-b">
+        <div className="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
+          <Link href="/" className="font-bold text-lg">
+            SAK Associates
+          </Link>
 
-        <nav className="hidden md:flex gap-6 text-sm font-medium">
-          <a href="#services" className="hover:underline">Services</a>
-          <a href="#about" className="hover:underline">About</a>
-          <a href="#gallery" className="hover:underline">Gallery</a>
-          <a href="#contact" className="hover:underline">Contact</a>
-        </nav>
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex gap-8 text-sm font-medium">
+            <a href="/#about">About</a>
+            <a href="/services">Services</a>
+            <a href="/#gallery">Gallery</a>
+            <a href="/#contact">Contact</a>
+          </nav>
 
-        {/* Single button link (no nested <a>) */}
-        <a
-          href="#contact"
-          className="rounded-md bg-blue-600 px-5 py-2 text-white hover:bg-blue-700"
-        >
-          Get Quote
-        </a>
-      </div>
-    </header>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="md:hidden text-2xl"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Overlay Menu */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm">
+          {/* Close Button */}
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              setServicesOpen(false);
+            }}
+            className="absolute top-6 right-6 text-white text-3xl"
+            aria-label="Close menu"
+          >
+            ×
+          </button>
+
+          {/* Menu Content */}
+          <div className="h-full flex flex-col items-center justify-center text-white">
+            <div className="flex flex-col items-center gap-8 text-3xl font-medium">
+
+              <Link href="/" onClick={() => setMenuOpen(false)}>
+                Home
+              </Link>
+
+              <a href="/#about" onClick={() => setMenuOpen(false)}>
+                About Us
+              </a>
+
+              {/* Services Toggle */}
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="flex items-center gap-3"
+              >
+                Services
+                <span className="text-xl">
+                  {servicesOpen ? "−" : "+"}
+                </span>
+              </button>
+
+              {/* Services Submenu */}
+              {servicesOpen && (
+                <div className="flex flex-col items-center gap-4 text-xl text-white/90">
+                  <Link
+                    href="/services#building-demolition"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Building Demolition
+                  </Link>
+
+                  <Link
+                    href="/services#fabrication-roofing"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Fabrication & Roofing
+                  </Link>
+
+                  <Link
+                    href="/services#iron-scrap"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Iron Scrap
+                  </Link>
+                </div>
+              )}
+
+              <a href="/#gallery" onClick={() => setMenuOpen(false)}>
+                Gallery
+              </a>
+
+              <a href="/#contact" onClick={() => setMenuOpen(false)}>
+                Contact Us
+              </a>
+
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
+
