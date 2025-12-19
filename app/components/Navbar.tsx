@@ -11,17 +11,11 @@ export default function Navbar() {
           <a href="#contact" className="hover:underline">Contact</a>
         </nav>
 
+        {/* Single button link (no nested <a>) */}
         <a
           href="#contact"
-          className="px-4 py-2 text-sm rounded-md bg-slate-900 text-white"
+          className="rounded-md bg-blue-600 px-5 py-2 text-white hover:bg-blue-700"
         >
-            <a
-  href="#contact"
-  className="rounded-md bg-blue-600 px-5 py-2 text-white hover:bg-blue-700"
->
-  Get Quote
-</a>
-
           Get Quote
         </a>
       </div>
