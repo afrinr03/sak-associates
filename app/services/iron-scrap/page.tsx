@@ -1,3 +1,6 @@
+export const metadata = {
+  title: "Iron Scrap Buying & Selling | SAK Associates",
+};
 export default function IronScrapPage() {
   return (
     <main className="bg-white min-h-screen">

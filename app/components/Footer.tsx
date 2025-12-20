@@ -1,51 +1,91 @@
+"use client";
+
+import Image from "next/image";
+import WaveDivider from "./WaveDivider";
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-20 pb-8">
-      <div className="mx-auto max-w-6xl px-5">
-        <div className="grid gap-10 md:grid-cols-4">
-          {/* Company */}
-          <div>
-            <h3 className="text-white text-lg font-bold mb-4">
-              SAK Associates
-            </h3>
-            <p className="text-sm leading-relaxed">
-              Trusted demolition, roofing and civil construction contractors
-              delivering safe and reliable solutions across Chennai.
-            </p>
+    <footer className="bg-[#0B1628] text-white">
+      {/* TOP: Logo area */}
+      <div className="px-6 pt-16 pb-10">
+        <div className="mx-auto max-w-6xl text-center">
+          <div className="flex justify-center">
+            <Image
+              src="/logo.png"
+              alt="SAK Associates"
+              width={520}
+              height={220}
+              priority
+              className="h-auto w-[260px] md:w-[420px] object-contain opacity-90"
+            />
           </div>
 
-          {/* Address */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Address</h4>
-            <p className="text-sm leading-relaxed">
-              Welders Street,<br />
-              Anna Salai,<br />
-              Chennai – 600002
-            </p>
-          </div>
+          <p className="mx-auto mt-6 max-w-3xl text-white/80 leading-relaxed">
+            Trusted demolition contractors delivering safe and reliable solutions
+            across Chennai.
+          </p>
+        </div>
+      </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
-            <p className="text-sm">📞 +91 9150314546</p>
-            <p className="text-sm mt-2">✉️ sakassociateschennai@gmail.com</p>
-          </div>
+      {/* Wave + Mustard strip */}
+      <div className="relative">
+        <WaveDivider
+          className="absolute -top-[60px] left-0 w-full sm:-top-[68px]"
+          fill="#D9A441"
+        />
 
-          {/* Links */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#services" className="hover:underline">Services</a></li>
-              <li><a href="#about" className="hover:underline">About</a></li>
-              <li><a href="#gallery" className="hover:underline">Gallery</a></li>
-              <li><a href="#contact" className="hover:underline">Contact</a></li>
-            </ul>
+        <div className="bg-[#D9A441] text-white">
+          <div className="mx-auto max-w-6xl px-6 py-16">
+            <div className="grid gap-12 md:grid-cols-3 md:gap-10">
+              {/* Address */}
+              <div className="flex gap-4">
+                <div className="text-3xl leading-none">📍</div>
+                <div>
+                  <h4 className="text-xl font-extrabold">Address</h4>
+                  <p className="mt-2 text-lg leading-relaxed text-white/95">
+                    No.7, KRJ Building, Welders Street,
+                    <br />
+                    Mount Road, Chennai – 600002
+                  </p>
+                </div>
+              </div>
+
+              {/* Call */}
+              <div className="flex gap-4">
+                <div className="text-3xl leading-none">📞</div>
+                <div>
+                  <h4 className="text-xl font-extrabold">Call Us</h4>
+                  <p className="mt-2 text-lg leading-relaxed text-white/95">
+                    +91 9150314546
+                    <br />
+                    +91 9940514546
+                    <br />
+                    +91 9840714546
+                  </p>
+                  <p className="mt-2 text-white/90">24 × 7 Support</p>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="flex gap-4">
+                <div className="text-3xl leading-none">✉️</div>
+                <div>
+                  <h4 className="text-xl font-extrabold">Email</h4>
+                  <p className="mt-2 text-lg text-white/95 break-words">
+                    sakassociateschennai@gmail.com
+                  </p>
+                  <p className="mt-2 text-white/90">24 × 7 Online Support</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 border-t border-gray-700 pt-6 text-center text-sm">
-          © {new Date().getFullYear()} SAK Associates. All rights reserved.
+        {/* Copyright */}
+        <div className="border-t border-white/10">
+          <div className="mx-auto max-w-6xl px-6 py-6 text-center text-white/70">
+            © {new Date().getFullYear()} SAK Associates. All rights reserved.
+          </div>
         </div>
       </div>
     </footer>

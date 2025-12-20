@@ -1,19 +1,11 @@
 import "./globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-poppins",
 });
-
-export const metadata: Metadata = {
-  title: "SAK Associates | Demolition & Civil Contractors in Chennai",
-  description:
-    "SAK Associates is a trusted demolition, roofing sheet and civil construction contractor in Chennai with over 20 years of experience.",
-  keywords:
-    "demolition contractor Chennai, roofing sheet contractor Chennai, civil works Chennai, building demolition Chennai",
-};
 
 export default function RootLayout({
   children,
@@ -21,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+    <html lang="en" className={poppins.variable}>
+      <body className="font-poppins antialiased bg-white text-slate-900">
         {children}
       </body>
     </html>

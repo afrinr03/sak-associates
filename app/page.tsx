@@ -3,7 +3,6 @@ import HeroSlider from "./components/HeroSlider";
 import Services from "./components/Services";
 import About from "./components/About";
 import Gallery from "./components/Gallery";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import FloatingButtons from "./components/FloatingButtons";
 import WhyChooseUs from "./components/WhyChooseUs";
@@ -17,7 +16,7 @@ export default function Home() {
       <WhyChooseUs />
       <About />
       <Gallery />
-      <Contact />
+      {/* Contact removed (footer will show contact strip like JKM) */}
       <Footer />
       <FloatingButtons />
     </main>

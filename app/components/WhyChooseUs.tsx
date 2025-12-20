@@ -1,67 +1,114 @@
 "use client";
 
-const points = [
+import Image from "next/image";
+
+const topItems = [
   {
-    title: "Experienced Professionals",
-    desc: "Decades of hands-on experience in demolition, roofing and civil construction projects.",
+    title: "Best Quality",
+    desc: "Get the best services in market.",
+    icon: "/why/quality.png",
   },
   {
-    title: "Safety First Approach",
-    desc: "Strict safety standards followed on every site to protect people, property and environment.",
+    title: "Affordable Price",
+    desc: "Best value pricing with clear quotes.",
+    icon: "/why/price.png",
   },
   {
-    title: "Quality Workmanship",
-    desc: "We focus on strong execution, durable materials and long-lasting results.",
+    title: "Safety",
+    desc: "We always put people’s safety first.",
+    icon: "/why/safety.png",
+  },
+];
+
+const bottomItems = [
+  {
+    title: "Skilled Execution",
+    desc: "Highly experienced team executing demolition with precision and control.",
+    icon: "/why/skilled-execution.png",
   },
   {
-    title: "On-Time Delivery",
-    desc: "Well-planned execution ensures projects are completed within agreed timelines.",
+    title: "Controlled Demolition",
+    desc: "Planned dismantling ensuring safety, stability and minimal disturbance.",
+    icon: "/why/controlled-demolition.png",
   },
   {
-    title: "Transparent Pricing",
-    desc: "Clear quotations with no hidden charges or last-minute surprises.",
-  },
-  {
-    title: "Chennai-Based Local Expertise",
-    desc: "Deep understanding of local regulations, conditions and client requirements in Chennai.",
+    title: "Clean Site Handover",
+    desc: "Complete debris removal and a clean, ready-to-use project handover.",
+    icon: "/why/clean-handover.png",
   },
 ];
 
 export default function WhyChooseUs() {
   return (
     <section
-      id="why-choose-us"
-      className="bg-gray-50 py-20"
+      id="why"
+      className="py-24"
+      style={{ backgroundColor: "#EEF6FF" }} // warm light blue like JKM
     >
-      <div className="mx-auto max-w-6xl px-5">
-        {/* Header */}
-        <div className="mb-14 text-center">
-          <p className="text-sm uppercase tracking-widest text-gray-500">
-            Why Choose Us
-          </p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold text-gray-900">
-            Trusted Contractor in Chennai
-          </h2>
-          <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
-            SAK Associates is known for delivering reliable, safe and high-quality
-            construction solutions backed by years of industry experience.
-          </p>
+      <div className="mx-auto max-w-6xl px-6 text-center">
+        {/* Title */}
+        <h2 className="text-3xl md:text-5xl font-extrabold text-blue-700 tracking-tight">
+          Why Choose SAK Associates
+        </h2>
+
+        {/* Subtitle */}
+        <p className="mt-5 text-lg md:text-xl text-gray-800 leading-relaxed max-w-3xl mx-auto">
+          We strive to deliver safe, reliable and efficient demolition solutions
+          while ensuring quality execution and timely project completion.
+        </p>
+
+        {/* TOP 3 ICONS */}
+        <div className="mt-16 grid gap-14 md:grid-cols-3">
+          {topItems.map((it) => (
+            <div
+              key={it.title}
+              className="flex flex-col items-center text-center"
+            >
+              <Image
+                src={it.icon}
+                alt={it.title}
+                width={70}
+                height={70}
+                className="mb-4"
+              />
+              <h3 className="text-2xl font-extrabold text-blue-700">
+                {it.title}
+              </h3>
+              <p className="mt-2 text-lg text-gray-900">{it.desc}</p>
+            </div>
+          ))}
         </div>
 
-        {/* Points */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {points.map((p) => (
+        {/* CENTER EXCAVATOR IMAGE */}
+        <div className="mt-20 flex justify-center">
+          <Image
+            src="/why/excavator.png"
+            alt="Excavator"
+            width={520}
+            height={520}
+            className="object-contain"
+            priority
+          />
+        </div>
+
+        {/* BOTTOM 3 ICONS (SAME STYLE AS TOP) */}
+        <div className="mt-20 grid gap-14 md:grid-cols-3">
+          {bottomItems.map((it) => (
             <div
-              key={p.title}
-              className="rounded-2xl bg-white p-8 border border-gray-200
-                transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              key={it.title}
+              className="flex flex-col items-center text-center"
             >
-              <h3 className="text-lg font-semibold text-gray-900">
-                {p.title}
+              <Image
+                src={it.icon}
+                alt={it.title}
+                width={70}
+                height={70}
+                className="mb-4"
+              />
+              <h3 className="text-2xl font-extrabold text-blue-700">
+                {it.title}
               </h3>
-              <p className="mt-3 text-gray-600 leading-relaxed">
-                {p.desc}
-              </p>
+              <p className="mt-2 text-lg text-gray-900">{it.desc}</p>
             </div>
           ))}
         </div>

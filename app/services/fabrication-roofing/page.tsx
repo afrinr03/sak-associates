@@ -1,3 +1,6 @@
+export const metadata = {
+  title: "Fabrication & Roofing Services | SAK Associates",
+};
 export default function FabricationRoofingPage() {
   return (
     <main className="bg-white min-h-screen">
