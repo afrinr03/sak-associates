@@ -1,93 +1,51 @@
 import Link from "next/link";
 
-const serviceGroups = [
+export const metadata = {
+  title: "Our Services | SAK Associates",
+  description:
+    "Building demolition, barrication & fabrication sheet works and iron scrap services in Chennai.",
+};
+
+const services = [
   {
-    id: "building-demolition",
     title: "Building Demolition",
-    intro:
-      "Complete demolition solutions handled with safety, planning and proper waste management.",
-    items: [
-      {
-        title: "Manual Demolition",
-        img: "/gallery/site1.jpg",
-        desc: "Careful dismantling for small areas and controlled demolition work.",
-      },
-      {
-        title: "Compressor Demolition",
-        img: "/gallery/site2.jpg",
-        desc: "Breaker and compressor-based demolition for faster execution.",
-      },
-      {
-        title: "Machine Demolition",
-        img: "/gallery/site3.jpg",
-        desc: "Excavator and heavy machinery demolition for large structures.",
-      },
-      {
-        title: "Interior Demolition",
-        img: "/gallery/site4.jpg",
-        desc: "Internal dismantling for renovation and rework projects.",
-      },
-      {
-        title: "Foundation Removal",
-        img: "/gallery/site5.jpg",
-        desc: "Foundation breaking and removal with proper site leveling support.",
-      },
-      {
-        title: "Warehouse / Industrial",
-        img: "/gallery/site6.jpg",
-        desc: "Large warehouse and industrial demolition with safe clearance.",
-      },
-      {
-        title: "Debris & Waste Removal",
-        img: "/gallery/site7.jpg",
-        desc: "Debris collection and site cleaning for safe handover.",
-      },
+    desc:
+      "Complete demolition solutions executed with safety, planning and proper waste management.",
+    image: "/gallery/site1.jpg",
+    link: "/services/building-demolition",
+    points: [
+      "Manual Demolition",
+      "Compressor Demolition",
+      "Machine Demolition",
+      "Interior Demolition",
+      "Foundation Removal",
+      "Warehouse & Industrial",
+      "Debris & Waste Removal",
     ],
   },
   {
-    id: "fabrication-roofing",
-    title: "Fabrication & Roofing Sheet Works",
-    intro:
-      "Sheet works and fabrication for residential, commercial and industrial requirements.",
-    items: [
-      {
-        title: "Residential Works",
-        img: "/gallery/site8.jpg",
-        desc: "Roofing and fabrication for residential buildings.",
-      },
-      {
-        title: "Commercial Works",
-        img: "/gallery/site9.jpg",
-        desc: "Sheet roofing solutions for commercial spaces.",
-      },
-      {
-        title: "Warehouse Works",
-        img: "/gallery/site10.jpg",
-        desc: "Strong and durable warehouse roofing structures.",
-      },
-      {
-        title: "Temporary Structures",
-        img: "/gallery/site11.jpg",
-        desc: "Temporary sheds and fast-install solutions.",
-      },
+    title: "Barrication & Fabrication Sheet Works",
+    desc:
+      "Reliable fabrication and roofing sheet works for residential, commercial and industrial sites.",
+    image: "/gallery/site9.jpg",
+    link: "/services/fabrication-roofing",
+    points: [
+      "Residential Works",
+      "Commercial Works",
+      "Warehouse Works",
+      "Temporary Structures",
     ],
   },
   {
-    id: "iron-scrap",
-    title: "Iron Scrap (Buy & Sell)",
-    intro:
-      "Buying and selling iron scrap with transparent pricing and quick pickup.",
-    items: [
-      {
-        title: "Buying Iron Scrap",
-        img: "/gallery/site12.jpg",
-        desc: "We purchase iron scrap from demolition and industrial sites.",
-      },
-      {
-        title: "Selling Iron Scrap",
-        img: "/gallery/site13.jpg",
-        desc: "Supplying iron scrap as per customer requirements.",
-      },
+    title: "Iron Scrap",
+    desc:
+      "Buying and selling all types of building iron scrap with transparent pricing and quick pickup.",
+    image: "/gallery/site13.jpg",
+    link: "/services/iron-scrap",
+    points: [
+      "Buying Iron Scrap",
+      "Selling Iron Scrap",
+      "Site Scrap Clearance",
     ],
   },
 ];
@@ -95,77 +53,68 @@ const serviceGroups = [
 export default function ServicesPage() {
   return (
     <main className="bg-white min-h-screen">
-      <div className="mx-auto max-w-6xl px-5 py-16">
-        {/* Page Header */}
+      <div className="mx-auto max-w-6xl px-6 py-20">
+
+        {/* Header */}
         <div className="mb-16">
           <p className="text-sm uppercase tracking-widest text-gray-500">
             Home / Services
           </p>
-
-          <div className="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Our Services
-              </h1>
-              <p className="mt-3 text-gray-600 max-w-2xl">
-                Professional demolition, fabrication, roofing and scrap
-                solutions delivered with safety, experience and reliability.
-              </p>
-            </div>
-
-            <Link
-              href="/#contact"
-              className="w-fit rounded-md bg-blue-600 px-6 py-2 text-white hover:bg-blue-700"
-            >
-              Get Quote
-            </Link>
-          </div>
+          <h1 className="mt-4 text-3xl md:text-4xl font-bold text-gray-900">
+            Our Services
+          </h1>
+          <p className="mt-3 max-w-2xl text-gray-600">
+            We deliver professional demolition, fabrication and iron scrap
+            solutions with safety, experience and reliability.
+          </p>
         </div>
 
-        {/* Services Sections */}
-        {serviceGroups.map((group) => (
-          <section
-            key={group.id}
-            id={group.id}
-            className="py-16 border-t"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              {group.title}
-            </h2>
-            <p className="mt-3 text-gray-600 max-w-3xl">
-              {group.intro}
-            </p>
-
-            <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {group.items.map((item) => (
+        {/* Services */}
+        <div className="space-y-24">
+          {services.map((service, index) => (
+            <section
+              key={service.title}
+              className={`grid gap-12 items-center ${
+                index % 2 === 0
+                  ? "md:grid-cols-2"
+                  : "md:grid-cols-2 md:flex-row-reverse"
+              }`}
+            >
+              {/* Image */}
+              <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg">
                 <div
-                  key={item.title}
-                  className="group rounded-2xl overflow-hidden border border-gray-200 bg-white
-                  transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                >
-                  {/* Image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                      style={{ backgroundImage: `url(${item.img})` }}
-                    />
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition" />
-                  </div>
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-110"
+                  style={{ backgroundImage: `url(${service.image})` }}
+                />
+                <div className="absolute inset-0 bg-black/30" />
+              </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-gray-600">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        ))}
+              {/* Content */}
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+                  {service.title}
+                </h2>
+
+                <p className="mt-4 text-gray-600 max-w-xl">
+                  {service.desc}
+                </p>
+
+                <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700">
+                  {service.points.map((point) => (
+                    <li key={point}>• {point}</li>
+                  ))}
+                </ul>
+
+                <Link
+                  href={service.link}
+                  className="inline-block mt-8 rounded-md bg-blue-600 px-7 py-3 text-white font-semibold hover:bg-blue-700 transition"
+                >
+                  View Details →
+                </Link>
+              </div>
+            </section>
+          ))}
+        </div>
       </div>
     </main>
   );
