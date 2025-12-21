@@ -1,10 +1,9 @@
 import "./globals.css";
-import { Poppins } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const poppins = Poppins({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700"],
 });
 
 export default function RootLayout({
@@ -13,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={poppins.variable}>
-      <body className="font-poppins antialiased bg-white text-slate-900">
+    <html lang="en">
+      <body className={`${inter.className} antialiased`}>
         {children}
       </body>
     </html>

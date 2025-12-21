@@ -17,8 +17,8 @@ const services = [
     ],
   },
   {
-    title: "Fabrication & Roofing Sheet Works",
-    desc: "Fabrication and sheet works for long-lasting and safe structures.",
+    title: "Barrigation and Fabrication Sheet Works",
+    desc: "Barrigation and Fabrication Sheet Workfor long-lasting and safe structures.",
     items: [
       "Residential Structures",
       "Commercial Structures",
