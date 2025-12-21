@@ -42,38 +42,51 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* MOBILE OVERLAY MENU (JKM STYLE) */}
-      {open && (
-        <div className="fixed inset-0 z-[999] bg-black/90 backdrop-blur-sm flex items-center justify-center">
-          {/* CLOSE */}
-          <button
-            onClick={() => setOpen(false)}
-            className="absolute top-6 right-6 text-3xl text-yellow-400"
-            aria-label="Close menu"
-          >
-            ✕
-          </button>
+      {/* MOBILE OVERLAY MENU */}
+      <div
+        className={`fixed inset-0 z-[999] transition-all duration-300 ${
+          open
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        } bg-black/90 backdrop-blur-sm`}
+      >
+        {/* CLOSE BUTTON */}
+        <button
+          onClick={() => setOpen(false)}
+          className={`absolute top-6 right-6 text-3xl text-yellow-400 transition-transform duration-300 ${
+            open ? "rotate-90" : "rotate-0"
+          }`}
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
 
-          {/* MENU ITEMS */}
-          <nav className="flex flex-col items-center gap-8 text-2xl font-semibold text-white">
-            <Link href="/" onClick={() => setOpen(false)}>
-              Home
+        {/* MENU CONTENT */}
+        <nav
+          className={`flex h-full flex-col items-center justify-center gap-8 text-2xl font-semibold text-white transition-all duration-300 ${
+            open ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          }`}
+        >
+          {[
+            { label: "Home", href: "/" },
+            { label: "About Us", href: "#about" },
+            { label: "Services", href: "/services" },
+            { label: "Gallery", href: "#gallery" },
+            { label: "Contact Us", href: "#contact" },
+          ].map((item, i) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="transition hover:text-yellow-400"
+              style={{ transitionDelay: `${i * 60}ms` }}
+            >
+              {item.label}
             </Link>
-            <Link href="#about" onClick={() => setOpen(false)}>
-              About Us
-            </Link>
-            <Link href="/services" onClick={() => setOpen(false)}>
-              Services
-            </Link>
-            <Link href="#gallery" onClick={() => setOpen(false)}>
-              Gallery
-            </Link>
-            <Link href="#contact" onClick={() => setOpen(false)}>
-              Contact Us
-            </Link>
-          </nav>
-        </div>
-      )}
+          ))}
+        </nav>
+      </div>
     </>
   );
 }
+
